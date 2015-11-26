@@ -1,3 +1,3 @@
 class HikesController < ApplicationController
-  belongs_to: :hiker
+  has_and_belongs_to_many: :hikers
 end
