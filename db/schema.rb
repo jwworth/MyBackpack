@@ -11,6 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151127185219) do
+
+  create_table "hikers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hikes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "coordinates"
+    t.integer  "length"
+    t.integer  "elevation_gain"
+    t.integer  "highest_point"
+    t.string   "description"
+    t.string   "parking_pass"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "hiker_id"
+    t.integer  "hike_id"
+    t.datetime "completed_at"
+    t.string   "notes"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
 end
