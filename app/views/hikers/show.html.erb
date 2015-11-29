@@ -42,7 +42,7 @@
 
     <% @saved_hikes.each do |hike| %>
       <script type="text/javascript">
-        createMarker(new google.maps.LatLng();
+        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>");
       </script>
     <% end %>
 
