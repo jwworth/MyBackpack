@@ -1,0 +1,12 @@
+<div>
+  <h1> <%= @hiker.name %></h1>
+  <h4>location:</h4> <%= @hiker.location %>
+  <h4>Bio:</h4>
+    <p> <%= @hiker.bio %> </p>
+  <h4>hikes</h4>
+  <ul>
+    <% @saved_hikes.each do |hike| %>
+    <li> <%= hike.name %></li>
+    <% end %>
+  </ul>
+</div>

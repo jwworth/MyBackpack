@@ -1,0 +1,9 @@
+<div>
+  <h1>Find a hike</h1>
+  <ul>
+    <% @hikes.each do |hike| %>
+    <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %>, <%= hike.length %> miles RT, <%= hike.elevation_gain %> elevation gain
+    </li>
+    <% end %>
+  </ul>
+</div>
