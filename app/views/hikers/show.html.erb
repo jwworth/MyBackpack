@@ -3,10 +3,13 @@
   <h4>location:</h4> <%= @hiker.location %>
   <h4>Bio:</h4>
     <p> <%= @hiker.bio %> </p>
+    <%= link_to "Edit Profile", edit_hiker_path(params[:id]) %>
   <h4>hikes</h4>
   <ul>
     <% @saved_hikes.each do |hike| %>
     <li> <%= hike.name %></li>
     <% end %>
   </ul>
+  <%= link_to "All Hikers", hikers_path %>
+  <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
 </div>
