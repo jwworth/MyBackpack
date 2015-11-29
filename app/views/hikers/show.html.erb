@@ -7,7 +7,7 @@
   <h4>hikes</h4>
   <ul>
     <% @saved_hikes.each do |hike| %>
-    <li> <%= hike.name %></li>
+    <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %></li>
     <% end %>
   </ul>
   <%= link_to "All Hikers", hikers_path %>

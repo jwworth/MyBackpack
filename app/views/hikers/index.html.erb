@@ -2,7 +2,7 @@
   <h1>Hikers</h1>
   <ul>
     <% @hikers.each do |hiker| %>
-      <li> <%= hiker.name %></li>
+      <li> <%= link_to "#{hiker.name}", hiker_path(id: hiker.id) %></li>
     <% end %>
   </ul>
 </div>
