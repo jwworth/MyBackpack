@@ -39,7 +39,12 @@
     });
     }
     </script>
-  
+
+    <% @saved_hikes.each do |hike| %>
+      <script type="text/javascript">
+        createMarker(new google.maps.LatLng();
+      </script>
+    <% end %>
 
   <%= link_to "All Hikers", hikers_path %>
   <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
