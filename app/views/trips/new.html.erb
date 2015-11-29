@@ -1,0 +1,12 @@
+<div>
+  <%= form_for @trip, url: {action: "create"} do |f| %>
+  <fieldset>
+    <legend>Save a hike:</legend>
+    <%=f.collection_select :hiker_id, @hikers.all, :id, :name, prompt: "What is your name?" %>
+    <br><br>
+  </fieldset>
+  <br>
+  <%= f.submit("Save!") %>
+<% end %>
+<%= link_to "Go back to hike", hike_path(params[:hike_id]) %>
+</div>
