@@ -16,6 +16,16 @@ class TripsController < ApplicationController
     redirect_to hiker_path(trip.hiker_id)
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    Trip.update(params[:id], trip_params[:trip])
+    redirect_to backpack_path(@trip.hiker_id)
+  end
+
   private
 
   def trip_params
