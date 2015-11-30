@@ -1,12 +1,25 @@
 <div>
   <h1>My Backpack</h1>
-
-  <h4>hikes</h4>
-  <ul>
-    <% @saved_hikes.each do |hike| %>
-    <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %></li>
-    <% end %>
-  </ul>
+  <table class="table table-hover">
+      <tr >
+        <th>Name</th>
+        <th>Length</th>
+        <th>Elevation</th>
+        <th>Completed</th>
+        <th>Notes</th>
+      </tr>
+      <% @saved_hikes.length.times do |i| %>
+      <% hike = @saved_hikes[i] %>
+      <% trip = @trips[i] %>
+      <tr >
+        <td><%= link_to "#{hike.name}", hike_path(id: hike.id) %></td>
+        <td><%= hike.length %></td>
+        <td><%= hike.elevation_gain %></td>
+        <td><%= trip.completed_at.strftime("%B %d, %Y") %> </td>
+        <td><%= trip.notes %> </td>
+      </tr>
+      <% end %>
+    </table>
 
   <div id="map-container">
     <div id="map-canvas"></div>
@@ -43,11 +56,12 @@
 
     <% @saved_hikes.each do |hike| %>
       <script type="text/javascript">
-        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= link_to hike.name, hike_path(params[:id]) %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
+        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
       </script>
     <% end %>
 
-  <%= link_to "All Hikers", hikers_path %>
+  <%= link_to "Back to Profile", hiker_path(params[:id]) %>
+  <%= link_to "See all hikes", hikes_path %>
 
 
 </div>
