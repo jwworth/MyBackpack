@@ -1,7 +1,7 @@
 <div class="container">
   <div class="background"></div>
   <h1>Find a hike</h1>
-  <table class="table table-hover">
+  <table class="table">
       <tr >
         <th>Name</th>
         <th>Length (miles RT)</th>
@@ -11,7 +11,7 @@
       </tr>
       <% @hikes.each do |hike| %>
       <tr >
-        <td><%= link_to "#{hike.name}", hike_path(id: hike.id) %></td>
+        <td><%= link_to "#{hike.name}", hike_path(id: hike.id), class: "black-link" %></td>
         <td><%= hike.length %></td>
         <td><%= hike.elevation_gain %></td>
         <td><%= hike.highest_point %> </td>
@@ -19,11 +19,12 @@
       </tr>
       <% end %>
     </table>
-    <%= link_to "All Hikers", hikers_path, class: "btn btn-default" %>
 
     <div id="map-container">
       <div id="map-canvas"></div>
     </div>
+    <br/>
+    <%= link_to "See all Hikers", hikers_path, class: "btn btn-default" %>
 
         <script type="text/javascript">
           var map;

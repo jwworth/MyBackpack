@@ -1,10 +1,12 @@
 <div class="container">
   <div class="background"></div>
   <h1>Hikers</h1>
-  <ul>
+  <table class="table">
     <% @hikers.each do |hiker| %>
-      <li> <%= link_to "#{hiker.name}", hiker_path(id: hiker.id) %></li>
+    <tr>
+      <td><%= link_to "#{hiker.name}", hiker_path(id: hiker.id), class: "black-link" %></td>
+    </tr>
     <% end %>
-  </ul>
+  </table>
   <%= link_to "See All Hikes", hikes_path, class: "btn btn-default" %>
 </div>
