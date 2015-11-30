@@ -1,11 +1,18 @@
 <div class="container">
   <div class="background"></div>
   <h1> <%= @hiker.name %></h1>
-  <h4>Location:</h4> <%= @hiker.location %>
-  <h4>Bio:</h4>
-    <p> <%= @hiker.bio %> </p>
+  <div class="col-md-6">
+    <h4>Location:</h4> <%= @hiker.location %>
+    <h4>Bio:</h4>
+      <p> <%= @hiker.bio %> </p>
     <%= link_to "Edit Profile", edit_hiker_path(params[:id]), class: "btn btn-default" %>
-    <%= link_to "My Backpack", backpack_path(params[:id]), class: "btn btn-default" %>
-  <%= link_to "All Hikers", hikers_path, class: "btn btn-default" %>
-  <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
+    <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
+    <%= link_to "All Hikers", hikers_path, class: "btn btn-default" %>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Find a Hike", hikes_path, class: "btn btn-default" %>
+    <%= link_to image_tag('backpack.png', alt: "See my backpack"), backpack_path(params[:id]), class: "pack"  %>
+    <!-- <%= link_to image_tag('buckminsterfullerene.png', width: '210', height: '60', alt: 'Molecular structure of Buckminsterfullerene'), 'some_long_path.html', title: 'Buckminsterfullerene', rel: 'tooltip', relative: true %> -->
+
+  </div>
 </div>

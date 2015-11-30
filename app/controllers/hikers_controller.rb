@@ -9,7 +9,6 @@ class HikersController < ApplicationController
     @saved_hikes = []
     hikes.each do |hike|
       @saved_hikes.push(Hike.find(hike.hike_id))
-      #puts hike.hike_id
     end
   end
 

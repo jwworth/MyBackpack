@@ -2,19 +2,20 @@
   <div class="background"></div>
   <h1><%= @hike.name %></h1>
 
+  <img src="<%= @hike.image %>" alt="Hike Picture" class="hike-pic">
+
   <div class="list">
     <h3>Quick Info</h3>
     <ul>
       <li><%= @hike.length %> miles RT</li>
       <li><%= @hike.elevation_gain %> ft. elevation gain</li>
-      <li><% @hike.highest_point %> ft. highest point</li>
-      <li><%= @hike.parking_pass %> required</li>
+      <li><%= @hike.highest_point %> ft. highest point</li>
+      <li>Parking Pass:<%= @hike.parking_pass %></li>
     </ul>
   </div>
 
   <%= link_to "Save Hike to my backpack", new_hike_trip_path(params[:id]), class: "btn btn-default" %>
 
-  <img src="<%= @hike.image %>" alt="Hike Picture" class="hike-pic">
 
   <h3>Description</h3>
     <p>
