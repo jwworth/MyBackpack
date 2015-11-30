@@ -1,56 +1,10 @@
-<div>
+<div class="container">
   <h1> <%= @hiker.name %></h1>
   <h4>location:</h4> <%= @hiker.location %>
   <h4>Bio:</h4>
     <p> <%= @hiker.bio %> </p>
     <%= link_to "Edit Profile", edit_hiker_path(params[:id]) %>
     <%= link_to "My Backpack", backpack_path(params[:id]) %>
-  <!-- <h4>hikes</h4>
-  <ul>
-    <% @saved_hikes.each do |hike| %>
-    <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %></li>
-    <% end %>
-  </ul> -->
-
-  <!-- <div id="map-container">
-    <div id="map-canvas"></div>
-  </div>
-
-    <script type="text/javascript">
-      var map;
-      function initialize(){
-        var mapOptions = {
-          center: new google.maps.LatLng(47.624397, -122.326486),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-      }
-      initialize();
-
-      //google.maps.event.addDomListener(window, 'load', initialize);
-      var infowindow = new google.maps.InfoWindow({
-        content: ""
-      });
-      function createMarker(coords, title, text){
-        var marker = new google.maps.Marker({
-          position: coords,
-          map: map,
-          title: title
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(text);
-          infowindow.open(map,marker);
-        });
-      }
-    </script>
-
-    <% @saved_hikes.each do |hike| %>
-      <script type="text/javascript">
-        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
-      </script>
-    <% end %> -->
-
   <%= link_to "All Hikers", hikers_path %>
   <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
 </div>
