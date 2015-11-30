@@ -1,13 +1,20 @@
 <div class="container">
   <h1><%= @hike.name %></h1>
+
   <h3>Quick Info</h3>
-  <%= @hike.length %> miles RT, <%= @hike.elevation_gain %> ft. elevation gain to <% @hike.highest_point %> ft. highest point
-  <%= @hike.parking_pass %> required
-  <%= @hike.coordinates %>
+  <ul>
+    <li><%= @hike.length %> miles RT</li>
+    <li><%= @hike.elevation_gain %> ft. elevation gain</li>
+    <li><% @hike.highest_point %> ft. highest point</li>
+    <li><%= @hike.parking_pass %> required</li>
+  </ul>
+
   <h3>Description</h3>
     <p>
       <%= @hike.description %>
     </p>
 
   <%= link_to "Save Hike to my backpack", new_hike_trip_path(params[:id]), class: "btn btn-default" %>
+  <%= link_to "Back to All Hikes", hikes_path, class: "btn btn-default" %>
+
 </div>

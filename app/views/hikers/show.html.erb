@@ -1,6 +1,6 @@
 <div class="container">
   <h1> <%= @hiker.name %></h1>
-  <h4>location:</h4> <%= @hiker.location %>
+  <h4>Location:</h4> <%= @hiker.location %>
   <h4>Bio:</h4>
     <p> <%= @hiker.bio %> </p>
     <%= link_to "Edit Profile", edit_hiker_path(params[:id]), class: "btn btn-default" %>

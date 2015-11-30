@@ -5,4 +5,5 @@
       <li> <%= link_to "#{hiker.name}", hiker_path(id: hiker.id) %></li>
     <% end %>
   </ul>
+  <%= link_to "See All Hikes", hikes_path, class: "btn btn-default" %>
 </div>

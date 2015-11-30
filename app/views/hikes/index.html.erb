@@ -1,9 +1,23 @@
 <div class="container">
   <h1>Find a hike</h1>
-  <ul>
-    <% @hikes.each do |hike| %>
-    <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %>, <%= hike.length %> miles RT, <%= hike.elevation_gain %> elevation gain
-    </li>
-    <% end %>
-  </ul>
+  <table class="table table-hover">
+      <tr >
+        <th>Name</th>
+        <th>Length (miles RT)</th>
+        <th>Elevation (ft)</th>
+        <th>Highest Point</th>
+        <th>Parking Pass</th>
+      </tr>
+      <% @hikes.each do |hike| %>
+      <tr >
+        <td><%= link_to "#{hike.name}", hike_path(id: hike.id) %></td>
+        <td><%= hike.length %></td>
+        <td><%= hike.elevation_gain %></td>
+        <td><%= hike.highest_point %> </td>
+        <td><%= hike.parking_pass %> </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= link_to "All Hikers", hikers_path, class: "btn btn-default" %>
+
 </div>
