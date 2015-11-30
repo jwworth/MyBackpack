@@ -1,4 +1,8 @@
 class HikesController < ApplicationController
+  def home
+
+  end
+  
   def index
     @hikes = Hike.all
   end
