@@ -1,6 +1,7 @@
 <div class="container" style="height: 100%">
+  <div class="background"></div>
   <h1>My Backpack</h1>
-  <table class="table table-hover">
+  <table class="table">
       <tr >
         <th>Name</th>
         <th>Length (miles RT)</th>
@@ -13,7 +14,7 @@
       <% hike = @saved_hikes[i] %>
       <% trip = @trips[i] %>
       <tr >
-        <td><%= link_to "#{hike.name}", hike_path(id: hike.id) %></td>
+        <td><%= link_to "#{hike.name}", hike_path(id: hike.id), class: "black-link" %></td>
         <td><%= hike.length %></td>
         <td><%= hike.elevation_gain %></td>
         <td><% if !trip.completed_at.nil? %>
@@ -21,50 +22,52 @@
           <% end %>
         </td>
         <td><%= trip.notes %> </td>
-        <td><%=link_to "Edit", edit_hike_trip_path(hike_id: hike.id, id: trip.id), class: "btn btn-default" %></td>
+        <td><%=link_to "Edit", edit_hike_trip_path(hike_id: hike.id, id: trip.id), class: "black-link" %></td>
       </tr>
       <% end %>
     </table>
+
+    <div id="map-container">
+      <div id="map-canvas"></div>
+    </div>
+
+        <script type="text/javascript">
+          var map;
+          function initialize(){
+            var mapOptions = {
+              center: new google.maps.LatLng(47.624397, -122.326486),
+              zoom: 8,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          }
+          initialize();
+
+          //google.maps.event.addDomListener(window, 'load', initialize);
+          var infowindow = new google.maps.InfoWindow({
+            content: ""
+          });
+          function createMarker(coords, title, text){
+            var marker = new google.maps.Marker({
+              position: coords,
+              map: map,
+              title: title
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(text);
+              infowindow.open(map,marker);
+            });
+          }
+        </script>
+
+        <% @saved_hikes.each do |hike| %>
+          <script type="text/javascript">
+            createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
+          </script>
+        <% end %>
+        <br/>
+    <div>
+      <%= link_to "Back to Profile", hiker_path(params[:id]), class: "btn btn-default" %>
+      <%= link_to "See all hikes", hikes_path, class: "btn btn-default" %>
+    </div>
 </div>
-
-<div id="map-container">
-  <div id="map-canvas"></div>
-</div>
-
-    <script type="text/javascript">
-      var map;
-      function initialize(){
-        var mapOptions = {
-          center: new google.maps.LatLng(47.624397, -122.326486),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-      }
-      initialize();
-
-      //google.maps.event.addDomListener(window, 'load', initialize);
-      var infowindow = new google.maps.InfoWindow({
-        content: ""
-      });
-      function createMarker(coords, title, text){
-        var marker = new google.maps.Marker({
-          position: coords,
-          map: map,
-          title: title
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(text);
-          infowindow.open(map,marker);
-        });
-      }
-    </script>
-
-    <% @saved_hikes.each do |hike| %>
-      <script type="text/javascript">
-        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
-      </script>
-    <% end %>
-
-  <%= link_to "Back to Profile", hiker_path(params[:id]), class: "btn btn-default" %>
-  <%= link_to "See all hikes", hikes_path, class: "btn btn-default" %>
