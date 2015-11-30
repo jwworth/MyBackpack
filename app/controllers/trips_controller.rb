@@ -9,7 +9,6 @@ class TripsController < ApplicationController
     @trip = Trip.create(
     hiker_id: trip_params[:trip][:hiker_id],
     hike_id: params[:hike_id],
-    completed_at: trip_params[:trip][:completed_at],
     notes: trip_params[:trip][:notes]
     )
     redirect_to backpack_path(@trip.hiker_id)
