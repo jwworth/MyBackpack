@@ -1,18 +1,14 @@
 <div>
-  <h1> <%= @hiker.name %></h1>
-  <h4>location:</h4> <%= @hiker.location %>
-  <h4>Bio:</h4>
-    <p> <%= @hiker.bio %> </p>
-    <%= link_to "Edit Profile", edit_hiker_path(params[:id]) %>
-    <%= link_to "My Backpack", backpack_path(params[:id]) %>
-  <!-- <h4>hikes</h4>
+  <h1>My Backpack</h1>
+
+  <h4>hikes</h4>
   <ul>
     <% @saved_hikes.each do |hike| %>
     <li> <%= link_to "#{hike.name}", hike_path(id: hike.id) %></li>
     <% end %>
-  </ul> -->
+  </ul>
 
-  <!-- <div id="map-container">
+  <div id="map-container">
     <div id="map-canvas"></div>
   </div>
 
@@ -47,10 +43,11 @@
 
     <% @saved_hikes.each do |hike| %>
       <script type="text/javascript">
-        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
+        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= link_to hike.name, hike_path(params[:id]) %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
       </script>
-    <% end %> -->
+    <% end %>
 
   <%= link_to "All Hikers", hikers_path %>
-  <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
+
+
 </div>

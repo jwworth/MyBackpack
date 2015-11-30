@@ -37,6 +37,15 @@ class HikersController < ApplicationController
     redirect_to hikers_path
   end
 
+  def backpack
+    @hiker = Hiker.find(params[:id])
+    hikes = Trip.where([ "hiker_id = ?", params[:id]])
+    @saved_hikes = []
+    hikes.each do |hike|
+      @saved_hikes.push(Hike.find(hike.hike_id))
+    end
+  end
+
   private
 
   def hiker_params
