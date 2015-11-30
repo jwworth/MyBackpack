@@ -16,7 +16,10 @@
         <td><%= link_to "#{hike.name}", hike_path(id: hike.id) %></td>
         <td><%= hike.length %></td>
         <td><%= hike.elevation_gain %></td>
-        <td><%= trip.completed_at.strftime("%B %d, %Y") %> </td>
+        <td><% if !trip.completed_at.nil? %>
+          <%= trip.completed_at.strftime("%B %d, %Y") %>
+          <% end %>
+        </td>
         <td><%= trip.notes %> </td>
         <td><%=link_to "Edit", edit_hike_trip_path(hike_id: hike.id, id: trip.id), class: "btn btn-default" %></td>
       </tr>

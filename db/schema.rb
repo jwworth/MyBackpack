@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130020712) do
+ActiveRecord::Schema.define(version: 20151130070928) do
 
   create_table "hikers", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151130020712) do
   create_table "hikes", force: :cascade do |t|
     t.string   "name"
     t.string   "coordinates"
-    t.integer  "length"
+    t.float    "length"
     t.integer  "elevation_gain"
     t.integer  "highest_point"
     t.string   "description"
