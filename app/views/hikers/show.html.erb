@@ -15,34 +15,38 @@
     <div id="map-canvas"></div>
   </div>
 
-
-
     <script type="text/javascript">
-        var map;
-        function initialize(){
-            var mapOptions = {
-                center: new google.maps.LatLng(47.624397, -122.326486),
-                zoom: 8,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        }
-        initialize();
+      var map;
+      function initialize(){
+        var mapOptions = {
+          center: new google.maps.LatLng(47.624397, -122.326486),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      }
+      initialize();
 
-        //google.maps.event.addDomListener(window, 'load', initialize);
-        var marker;
-    function createMarker(coords, title){
-    marker = new google.maps.Marker({
-    position: coords,
-    map: map,
-    title: title
-    });
-    }
+      //google.maps.event.addDomListener(window, 'load', initialize);
+      var marker;
+      function createMarker(coords, title, text){
+        marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          title: title
+        });
+        var infowindow = new google.maps.InfoWindow({
+          content: text
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+      }
     </script>
 
     <% @saved_hikes.each do |hike| %>
       <script type="text/javascript">
-        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>");
+        createMarker(new google.maps.LatLng( <%= hike.coordinates %> ), "<%= hike.name %>", "<%= hike.name %>, <%= hike.length %> ft. roundtrip, <%= hike.elevation_gain %> ft. elevation gain");
       </script>
     <% end %>
 
