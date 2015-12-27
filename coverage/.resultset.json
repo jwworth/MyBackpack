@@ -5,33 +5,33 @@
         1,
         null,
         1,
-        0,
-        0,
+        1,
+        1,
         null,
         null,
         1,
-        0,
-        null,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
         1,
-        0,
         null,
         null,
-        1,
-        0,
-        0,
-        0,
         null,
         null,
         1,
         null,
+        null,
         1,
-        0,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        3,
         null,
         null
       ],
@@ -41,8 +41,26 @@
         null,
         1,
         null
+      ],
+      "/Users/jennanichols/Ada/AdieCode/MyBackpack/app/models/hike.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/jennanichols/Ada/AdieCode/MyBackpack/app/models/hiker.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/jennanichols/Ada/AdieCode/MyBackpack/app/models/trip.rb": [
+        1,
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1451250961
+    "timestamp": 1451253489
   }
 }
