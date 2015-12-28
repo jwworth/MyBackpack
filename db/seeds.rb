@@ -179,12 +179,12 @@ hikes.each do |hike|
 end
 
 hikers = [
-  { name: "Claire Schechter", location: "Seattle", email:"claire@ilovehiking.com", password:"password", bio: "In west Philadelphia born and raised, On the playground was where I spent most of my days. Chillin' out maxin' relaxin' all cool. And all shootin some b-ball outside of the school. When a couple of guys who were up to no good, Started making trouble in my neighborhood. I got in one little fight and my mom got scared, She said 'You're movin' with your auntie and uncle in Bel Air.'"},
-  { name: "Ada Lovelace", location: "London, England", email:"ada@ilovehiking.com", password:"password", bio: "British mathematician and writer, chiefly known for her work on Charles Babbage's early mechanical general-purpose computer, the Analytical Engine. Her notes on the engine include what is recognised as the first algorithm intended to be carried out by a machine. Because of this, she is often regarded as the first computer programmer.[1][2][3]
+  { name: "Claire Schechter", location: "Seattle", email:"claire@ilovehiking.com", password:"password", password_confirmation:"password", bio: "In west Philadelphia born and raised, On the playground was where I spent most of my days. Chillin' out maxin' relaxin' all cool. And all shootin some b-ball outside of the school. When a couple of guys who were up to no good, Started making trouble in my neighborhood. I got in one little fight and my mom got scared, She said 'You're movin' with your auntie and uncle in Bel Air.'"},
+  { name: "Ada Lovelace", location: "London, England", email:"ada@ilovehiking.com", password:"password", password_confirmation:"password", bio: "British mathematician and writer, chiefly known for her work on Charles Babbage's early mechanical general-purpose computer, the Analytical Engine. Her notes on the engine include what is recognised as the first algorithm intended to be carried out by a machine. Because of this, she is often regarded as the first computer programmer.[1][2][3]
 
 Lovelace was born 10 December 1815 as the only legitimate child of the poet George Gordon, Lord Byron and his wife Anne Isabella Milbanke, Baroness Wentworth.[4] All Byron's other children were born out of wedlock to other women.[5] Byron separated from his wife a month after Ada was born and left England forever four months later, eventually dying of disease in the Greek War of Independence when Ada was eight years old. Ada's mother remained bitter towards Lord Byron and promoted Ada's interest in mathematics and logic in an effort to prevent her from developing what she saw as the insanity seen in her father, but Ada remained interested in him despite this (and was, upon her eventual death, buried next to him at her request)." },
-  { name: "Mama Bear", location: "Yosemite", email:"mamabear@ilovehiking.com", password:"password",bio: "Love my cubs and my noms."},
-  { name: "Tanner", location: "Seattle, Washington", email:"tanner@ilovehiking.com", password:"password", bio: "robots and trees"}
+  { name: "Mama Bear", location: "Yosemite", email:"mamabear@ilovehiking.com", password:"password", password_confirmation:"password", bio: "Love my cubs and my noms."},
+  { name: "Tanner", location: "Seattle, Washington", email:"tanner@ilovehiking.com", password:"password", password_confirmation:"password", bio: "robots and trees"}
 
 ]
 
