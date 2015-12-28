@@ -1,4 +1,7 @@
 class HikersController < ApplicationController
+  before_action :require_user, only: [:update, :edit, :destroy]
+  before_action :redirect_if_logged_in, only: [:new, :create]
+
   def index
     @hikers = Hiker.all
   end
@@ -48,6 +51,6 @@ class HikersController < ApplicationController
   private
 
   def hiker_params
-    params.permit(hiker: [:name, :location, :bio])
+    params.permit(hiker: [:name, :location, :bio, :email, :password, :password_confirmation])
   end
 end
