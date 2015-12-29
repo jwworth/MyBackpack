@@ -21,7 +21,8 @@ class HikersController < ApplicationController
 
   def create
     hiker = Hiker.create(hiker_params[:hiker])
-    redirect_to hiker_path(id: hiker.id )
+    session[:hiker_id] = hiker.id
+    redirect_to hiker_path(hiker)
   end
 
   def edit
