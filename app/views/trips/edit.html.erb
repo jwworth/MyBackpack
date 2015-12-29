@@ -2,14 +2,18 @@
   <div class="background"></div>
   <%= form_for @trip, url: {action: "update"} do |f| %>
   <fieldset>
-    <legend>Save a hike:</legend>
-    <%= f.label :notes %><br/>
-    <%= f.text_area :notes, cols: 40, rows: 15 %><br/><br/>
-    <%= f.label "Completed at:" %>
-    <%= f.date_select :completed_at, {order: [:month, :day, :year]} %>
+    <legend>Update hike:</legend>
+    <div class="form-group">
+      <%= f.label :notes %><br/>
+      <%= f.text_area :notes, class: "form-control", rows: 10 %>
+    </div>
+    <div class="form-group">
+      <%= f.label "Completed at:" %>
+      <%= f.date_select :completed_at, {order: [:month, :day, :year]} %>
+    </div>
   </fieldset>
   <br>
-  <%= f.submit("Save!") %>
+  <%= f.submit "Save!", class: "btn btn-default" %>
 <% end %>
 <%= link_to "Back to Backpack", backpack_path(@trip.hiker_id), class: "btn btn-default" %>
 </div>

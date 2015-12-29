@@ -1,13 +1,14 @@
 class TripsController < ApplicationController
 
+before_action :require_user
+
   def new
     @trip = Trip.new
-    @hikers = Hiker.all
   end
 
   def create
     @trip = Trip.create(
-    hiker_id: trip_params[:trip][:hiker_id],
+    hiker_id: @current_user.id,
     hike_id: params[:hike_id],
     notes: trip_params[:trip][:notes]
     )
@@ -27,6 +28,6 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.permit(trip: [:hiker_id, :name, :notes, :completed_at])
+    params.permit(trip: [:name, :notes, :completed_at])
   end
 end
