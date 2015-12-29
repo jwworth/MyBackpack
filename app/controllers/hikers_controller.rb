@@ -25,17 +25,18 @@ class HikersController < ApplicationController
   end
 
   def edit
-    @hiker = Hiker.find(params[:id])
+    @hiker = Hiker.find(@current_user.id)
   end
 
   def update
-    @hiker = Hiker.find(params[:id])
-    Hiker.update(params[:id], hiker_params[:hiker])
-    redirect_to hiker_path(params[:id])
+    @hiker = Hiker.find(@current_user.id)
+    Hiker.update(@current_user.id, hiker_params[:hiker])
+    redirect_to hiker_path(@current_user)
   end
 
   def destroy
-    Hiker.destroy(params[:id])
+    Hiker.destroy(@current_user.id)
+    session[:hiker_id] = nil
     redirect_to hikers_path
   end
 
