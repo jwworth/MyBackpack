@@ -1,6 +1,5 @@
 class HikesController < ApplicationController
   def home
-
   end
   
   def index

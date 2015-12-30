@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="background"></div>
+<div class="background"></div>
   <h1> <%= @hiker.name %></h1>
   <div class="col-md-6">
     <h4>Location:</h4> <%= @hiker.location %>
@@ -15,6 +14,5 @@
     <br><br><br>
     <%= link_to image_tag('backpack.png', alt: "See backpack", :width => 250, :height => 250), backpack_path(params[:id]), class: "pack"  %>
     <!-- <%= link_to image_tag('buckminsterfullerene.png', width: '210', height: '60', alt: 'Molecular structure of Buckminsterfullerene'), 'some_long_path.html', title: 'Buckminsterfullerene', rel: 'tooltip', relative: true %> -->
-
   </div>
 </div>

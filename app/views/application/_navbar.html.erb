@@ -1,0 +1,13 @@
+<div class="navbar navbar-default">
+  <%= link_to 'Home', root_path %> /
+  <%= link_to 'Hikes', hikes_path %> /
+  <%= link_to 'Hikers', hikers_path %> /
+  <% if @current_user.nil? %>
+    <%= link_to 'Login', login_path %> /
+    <%= link_to 'Sign Up', signup_path %>
+  <% elsif !@current_user.nil? %>
+    <%= link_to 'Profile', hiker_path(Hiker.find(session[:hiker_id])) %> /
+    <%= link_to 'My Backpack', backpack_path(session[:hiker_id]) %> /
+    <%= link_to 'Logout', logout_path, method: :delete %>
+  <% end %>
+</div>

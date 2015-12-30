@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   resources :sessions, :only => [:new, :create]
 
+  get "signup", to: "hikers#new", as: :signup
+  get "login", to: "sessions#new", as: :login
+
   delete "/logout", to: "sessions#destroy", as: :logout
 end
