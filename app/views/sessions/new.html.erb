@@ -1,22 +1,23 @@
 
-  <div class="background"></div>
-<h1>Login</h1>
-<% if !flash[:error].nil? %>
-  <%= flash[:error] %>
-<% end %>
+<div class="background"></div>
+  <h1>Login</h1>
+  <% if !flash[:error].nil? %>
+    <%= flash[:error] %>
+  <% end %>
 
 
-<%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
-  </div>
-  <br>
-    <%= f.submit "Login", class:"btn btn-default" %>
-<% end %>
+  <%= form_for(:session_data, url: sessions_path, html: {class: "form-group" }) do |f| %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <br>
+      <%= f.submit "Login", class:"btn btn-default" %>
+  <% end %>
 
-<%= link_to "Create an Account", new_hiker_path, class: "btn btn-default"%>
+  <%= link_to "Create an Account", new_hiker_path, class: "btn btn-default"%>
+</div>

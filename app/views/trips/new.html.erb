@@ -1,15 +1,14 @@
-<div class="container">
-  <div class="background"></div>
+<div class="background"></div>
   <%= form_for @trip, url: {action: "create"} do |f| %>
-  <fieldset>
-    <legend>Save a hike:</legend>
-    <div class="form-group">
-      <%= f.label :notes %><br/>
-      <%= f.text_area :notes, class: "form-control", rows: 10 %>
-    </div>
-  </fieldset>
-  <br>
-  <%= f.submit "Save!", class: "btn btn-default" %>
-<% end %>
-<%= link_to "Go back to hike", hike_path(params[:hike_id]), class: "btn btn-default" %>
+    <fieldset>
+      <legend>Save a hike:</legend>
+      <div class="form-group">
+        <%= f.label :notes %><br/>
+        <%= f.text_area :notes, class: "form-control", rows: 10 %>
+      </div>
+    </fieldset>
+    <br>
+    <%= f.submit "Save!", class: "btn btn-default" %>
+  <% end %>
+  <%= link_to "Go back to hike", hike_path(params[:hike_id]), class: "btn btn-default" %>
 </div>

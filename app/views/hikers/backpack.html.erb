@@ -1,5 +1,4 @@
-<div class="container" style="height: 100%">
-  <div class="background"></div>
+<div class="background"></div>
   <% if !@current_user.nil? && @hiker.id == @current_user.id %>
     <h1>My Backpack</h1>
   <% else %>
@@ -72,8 +71,4 @@
           </script>
         <% end %>
         <br/>
-    <div>
-      <%= link_to "Back to Profile", hiker_path(params[:id]), class: "btn btn-default" %>
-      <%= link_to "Find a Hike", hikes_path, class: "btn btn-default" %>
-    </div>
 </div>

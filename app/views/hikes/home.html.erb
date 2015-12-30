@@ -1,5 +1,4 @@
-<div>
-  <div class="background"></div>
+<div class="background"></div>
   <h1 class="intro">Welcome <%= @current_user.name if !@current_user.nil? %></h1>
   <%= link_to "See all hikes", hikes_path, class: "btn btn-default" %>
   <br>
