@@ -17,11 +17,16 @@ before_action :require_user
 
   def edit
     @trip = Trip.find(params[:id])
+    if @trip.hiker_id != @current_user.id
+      redirect_to backpack_path(@trip.hiker_id)
+    end
   end
 
   def update
     @trip = Trip.find(params[:id])
-    Trip.update(params[:id], trip_params[:trip])
+    if @trip.hiker_id == @current_user.id
+      Trip.update(params[:id], trip_params[:trip])
+    end
     redirect_to backpack_path(@trip.hiker_id)
   end
 
