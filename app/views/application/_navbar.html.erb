@@ -8,6 +8,7 @@
   <% end %>
   <% if !@current_user.nil? %>
   <%= link_to 'Profile', hiker_path(Hiker.find(session[:hiker_id])) %> /
+  <%= link_to 'My Backpack', backpack_path(session[:hiker_id]) %> /
     <%= link_to 'Logout', logout_path %>
   <% end %>
 </div>
