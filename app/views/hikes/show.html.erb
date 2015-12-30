@@ -13,9 +13,9 @@
       <li>Parking Pass:<%= @hike.parking_pass %></li>
     </ul>
   </div>
-
-  <%= link_to "Save Hike to my backpack", new_hike_trip_path(params[:id]), class: "btn btn-default" %>
-
+  <% if !@current_user.nil? %>
+    <%= link_to "Save Hike to my backpack", new_hike_trip_path(params[:id]), class: "btn btn-default" %>
+  <% end %>
 
   <h3>Description</h3>
     <p>

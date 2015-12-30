@@ -5,13 +5,15 @@
     <h4>Location:</h4> <%= @hiker.location %>
     <h4>Bio:</h4>
       <p> <%= @hiker.bio %> </p>
-    <%= link_to "Edit Profile", edit_hiker_path(params[:id]), class: "btn btn-default" %>
-    <%= button_to "Delete Hiker", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
+    <% if !@current_user.nil? && @current_user.id == @hiker.id %>
+      <%= link_to "Edit Profile", edit_hiker_path(params[:id]), class: "btn btn-default" %>
+      <%= button_to "Delete Account", hiker_path(params[:id]), method: :delete, class: "btn btn-default", data: { confirm: "Deleting your profile will also delete all the hikes in your backpack? Are you sure you want to do this?"} %>
+    <% end %>
     <%= link_to "All Hikers", hikers_path, class: "btn btn-default" %>
   </div>
   <div class="col-md-6">
     <br><br><br>
-    <%= link_to image_tag('backpack.png', alt: "See my backpack", :width => 250, :height => 250), backpack_path(params[:id]), class: "pack"  %>
+    <%= link_to image_tag('backpack.png', alt: "See backpack", :width => 250, :height => 250), backpack_path(params[:id]), class: "pack"  %>
     <!-- <%= link_to image_tag('buckminsterfullerene.png', width: '210', height: '60', alt: 'Molecular structure of Buckminsterfullerene'), 'some_long_path.html', title: 'Buckminsterfullerene', rel: 'tooltip', relative: true %> -->
 
   </div>

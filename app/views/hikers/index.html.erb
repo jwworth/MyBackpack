@@ -9,5 +9,7 @@
     <% end %>
   </table>
   <%= link_to "Find a Hike", hikes_path, class: "btn btn-default" %>
-  <%= link_to "Add a Hiker", new_hiker_path, class: "btn btn-default" %>
+  <% if @current_user.nil? %>
+    <%= link_to "Create Hiker Account", new_hiker_path, class: "btn btn-default" %>
+  <% end %>
 </div>

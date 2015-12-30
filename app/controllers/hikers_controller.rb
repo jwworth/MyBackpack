@@ -1,4 +1,7 @@
 class HikersController < ApplicationController
+  before_action :require_user, only: [:update, :edit, :destroy]
+  before_action :redirect_if_logged_in, only: [:new, :create]
+
   def index
     @hikers = Hiker.all
   end
@@ -18,21 +21,23 @@ class HikersController < ApplicationController
 
   def create
     hiker = Hiker.create(hiker_params[:hiker])
-    redirect_to hiker_path(id: hiker.id )
+    session[:hiker_id] = hiker.id
+    redirect_to hiker_path(hiker)
   end
 
   def edit
-    @hiker = Hiker.find(params[:id])
+    @hiker = Hiker.find(@current_user.id)
   end
 
   def update
-    @hiker = Hiker.find(params[:id])
-    Hiker.update(params[:id], hiker_params[:hiker])
-    redirect_to hiker_path(params[:id])
+    @hiker = Hiker.find(@current_user.id)
+    Hiker.update(@current_user.id, hiker_params[:hiker])
+    redirect_to hiker_path(@current_user)
   end
 
   def destroy
-    Hiker.destroy(params[:id])
+    Hiker.destroy(@current_user.id)
+    session[:hiker_id] = nil
     redirect_to hikers_path
   end
 
@@ -48,6 +53,6 @@ class HikersController < ApplicationController
   private
 
   def hiker_params
-    params.permit(hiker: [:name, :location, :bio])
+    params.permit(hiker: [:name, :location, :bio, :email, :password, :password_confirmation])
   end
 end
