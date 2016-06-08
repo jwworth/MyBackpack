@@ -1,7 +1,7 @@
 require "simplecov"
 require "rails_helper"
 
-SimpleCov.start do
+SimpleCov.start 'rails' do
   add_filter 'spec/'
 end
 
